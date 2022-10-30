@@ -102,11 +102,68 @@ someAny = nil // error
 someAnyObject = nil // error
 ```
 
-어떤 데이터 값이 들어올 수 있지만 빈 값은 할당될 수 없다!
+어떤 데이터 값이 들어올 수 있지만 빈 값은 할당될 수 없다!   
 
 
 
+***
+&nbsp;
 
 
+### 컬렉션 타입
+컬렉션 타입이란 여러 값들을 묶어서 하나로 표현하는 형
+1. `Array` - 순서가 있는 리스트 컬렉션
+2. `Dictionary` - 키와 값의 쌍으로 이루어진 컬렉션
+3. `Set` - 순서가 없고, 멤버가 유일한 컬렉션
+
+
+&nbsp;
+#### Array
+```swift
+var integers: Array<Int> = Array<Int>() // 빈 Int Array 생성
+integers.append(1)
+integers.append(100)
+
+
+integers.contains(100)
+integers.remove(at: 0)
+integers.removeLat()
+integers.removeAll()
+integers.count
+```
+
+
+
+- 아래 Array<Double> 와 [Double]는 동일한 표현
+   
+```swift
+var doubles: Array<Double> = [Double]() // 빈 Dobule Array 생성
+
+var strings: [String] = [String]() // 빈 String Array 생성
+
+var character: [Character] = [] // 빈 Character Array 생성
+```
+
+- let 을 사용해서 Array 선언하면 불변 Array 이다.
+
+&nbsp;
+
+
+#### Dictionary
+
+```swift
+// key 가 String 타입이고 Value 가 Any 인 빈 Dictionary 생성
+var anyDictionary: Dictionary<String, Any> = [String: Any]()
+
+anyDictionary["someKey"] = "value" // 값 할당
+anyDictionary["someKey"] = "value1" // 값 수정
+```
+
+
+
+```swift
+anyDictionary.removeValue(forKey: "someKey")
+anyDictionary["someKey"] = nil
+```
 
 
