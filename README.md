@@ -158,12 +158,75 @@ var anyDictionary: Dictionary<String, Any> = [String: Any]()
 anyDictionary["someKey"] = "value" // 값 할당
 anyDictionary["someKey"] = "value1" // 값 수정
 ```
+&nbsp;
 
-
+- 아래 두 줄은 같은 표현이다
 
 ```swift
 anyDictionary.removeValue(forKey: "someKey")
 anyDictionary["someKey"] = nil
 ```
 
+
+```swift
+let emptyDictionary: [String: String] = [:] // 변경 불가
+let initializedDictionary: [String: String] = ["name": "yagom", "gender": "male"]
+
+
+let someValue: String = initializedIdctionary["name"] //error
+```
+- 왜 안되는지 생각 -> 키에 해당하는 값이 있을 수도 있고 없을 수도 있어서 -> 옵셔널에서 배워볼 것임
+
+
+&nbsp;
+
+#### Set
+```swift
+var integerSet: Set<Int> = Set<Int>() // 빈 Int Set 생성
+
+integerSet.insert(1) // 중복된 값이 넣어질 수 없음. 한번만 추가된다
+integerSet.contains(1)
+integerSet.remove(100)
+integerSet.removeFirst()
+integerSet.count
+```
+&nbsp;
+
+- Set 은 합집합, 교집합 등 집합연산에 용이하다
+
+```swift
+let setA: Set<Int> = [1, 2, 3, 4, 5]
+let setB: Set<Int> = [3, 4, 5, 6, 7]
+let union: Set<Int> = setA.union(setB) // 합집합
+let sortedUnion: [Int] = union.sorted() // 위를 정렬
+
+let intersection: Set<Int> = setA.intersection(setB) // 교집합
+let subtracting: Set<Int> = setA.subtracting(setB) // 차집합
+```
+
+&nbsp;
+***
+### 함수 기본
+
+```swift
+func sum(a: Int, b: Int) -> Int {
+  return a + b
+}
+
+
+func printMyname(name: String) -> Void {
+  print(name)
+}
+
+
+func printMyname(name: String) {
+  print(name)
+}
+
+ 
+ 
+// 함수 호출
+sum(a: 3, b: 5)
+printMyName(name: "yagom") // yagom
+```
 
