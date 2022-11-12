@@ -230,3 +230,65 @@ sum(a: 3, b: 5)
 printMyName(name: "yagom") // yagom
 ```
 
+&nbsp;
+
+### 함수 고급
+기본값을 갖는 매개변수는 매개변수 목록 중에 뒤쪽에 위치하는 것이 좋다!
+```swift
+func 함수이름(매개변수1이름: 매개변수1타입, 매개변수2이름: 매개변수2타입 = 기본값) -> 반환타입 {
+  return 반환값
+}
+```
+&nbsp;
+
+#### `전달인자 레이블`
+전달인자 레이블은 함수를 호출할 때 `매개변수의 역할을 좀 더 명확`하게 하거나 `함수 사용자의 입장에서 표현`하고자 할 때 사용한다
+
+```swift
+func 함수이름(전달인자레이블 매개변수1이름: 매개변수1타입, 전달인자레이블 매개변수2이름: 매개변수2타입 = 기본값) -> 반환타입 {
+  return 반환값
+}
+```
+예시를 보자
+
+```swift
+func greeting(to friend: String, from me: String) -> {
+  print("Hello, \(friend)! I'm \(me)")
+}
+```
+이것은
+
+```swift
+func greeting(friend: String, me: String) -> {
+  print("Hello, \(friend)! I'm \(me)")
+}
+```
+이것과 다른 함수이다.   
+또한 함수를 호출할 때에는 `greeting(to: "haha", from: "yagom")` 이렇게 `전달인자 레이블을 사용`해야 한다.
+그러나 내부에서는 매개변수 이름 friend, me 사용해야 하는거 헷갈리지 말자.
+
+&nbsp;
+
+#### `가변 매개변수`
+1. 전달 받을 값의 개수를 알기 어려울 때
+2. 가변 매개변수는 `함수당 하나`만 가질 수 있다
+```swift
+func sayHelloToFriends(me: String, friends: String...) -> String {
+  return "Hello, \(friends)! I'm \(me)")
+}
+
+print(sayHelloToFriends(me: "jihyun", friends: "gaga", "nana", "nunu"))
+// Hello, ["gaga", "nana", "nunu"]! I'm jihyun!
+```
+
+만약 아무런 값을 넣어주지 않고 싶다면
+
+
+```swift
+print(sayHelloToFriends(me: "jihyun", friends: [])) // error
+print(sayHelloToFriends(me: "jihyun", friends: nil)) // error
+
+print(sayHelloToFriends(me: "jihyun")) // ok!
+// Hello []! I'm jihyun!
+```
+
