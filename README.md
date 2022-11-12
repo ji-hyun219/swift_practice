@@ -292,3 +292,36 @@ print(sayHelloToFriends(me: "jihyun")) // ok!
 // Hello []! I'm jihyun!
 ```
 
+&nbsp;
+&nbsp;
+
+
+### 함수 고급 활용 예시
+
+```swift
+var someFunction: (String, String) -> Void = greeting(to:from:) // 함수 타입이 (String, String) -> Void
+someFunction("eric", "yagom") // Hello, eric! I'm yagom!
+
+someFunction = greeting(friend:me:) 
+someFunction("eric", "yagom")
+
+// 단 다음은 다른 타입이므로 안됨 (friends 가 가변 매개변수라서)
+someFunction = sayHelloToFriends(me:friends:) // error
+```
+첫번째 greeting 은 위에서 쓴 전달인자 레이블, 두번째 greeting 은 전달인자 레이블 예시에서 다르다고 한 함수 !
+
+&nbsp;
+&nbsp;
+
+```swift
+func runAnother(function: (String, String) -> Void) {
+  function("jenny", "mike")
+}
+
+runAnother(function: greeting(friend:me:)) // Hello, jenny! I'm mike!
+runAnother(function: someFunction) // Hello, jenny! I'm mike!
+```
+
+
+
+
