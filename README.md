@@ -322,6 +322,53 @@ runAnother(function: greeting(friend:me:)) // Hello, jenny! I'm mike!
 runAnother(function: someFunction) // Hello, jenny! I'm mike!
 ```
 
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+
+***
+### 조건문
+#### `범위연산자`
+```swift
+switch someInteger {
+  case: 0:
+    print("zero")
+  case: 1..<100:
+    print("1~99") // 1이상 100 미만
+  case: 100:
+    print("100")
+  case: 101...Int.max:
+    print("over 100") // ... 은 이상 이하
+  default:
+    print("unknown")
+```
+특이점: 
+1. `default 무조건` 써줘야 함 -> 안 그러면 에러!
+2. case 마다 break 이 생략되어 있음. (= `자동 break` 가 됨)
+
+
+&nbsp;
+&nbsp;
+
+### 반복문
+Dictionary 의 item 은 key 와 value 로 구성된 튜플 타입이다
+```swift
+for (name, age) in people {
+  print("\(name): \(age)")
+}
+```
+&nbsp;
+&nbsp;
+
+```swift
+repeat {
+  integers.removeLast()
+} while integers.count > 0
+```
+
+`do-while 구문`과 똑같다고 생각하면 된다.   
+먼저 repeat 안의 구문을 실행하고 while 조건을 체크 후 true 인 경우 repeat 을 반복한다.
 
 
 
